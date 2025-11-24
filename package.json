@@ -1,0 +1,18 @@
+{
+  "name": "assignment_irina",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.0",
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
