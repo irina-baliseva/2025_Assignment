@@ -5,13 +5,10 @@ let password: string;
 
 test('consumer can log in successfully', async ({ page }) => {
     const login = new LoginPage(page);
-    await login.goto();
 
     if (process.env.STORE_PASSWORD !== undefined){
         password = process.env.STORE_PASSWORD;
     }
-
-    await login.login('irina', password, 'consumer');
-
-    await expect(page).toHaveURL(/\/store/i);
+    await login.loginAsConsumer('irina', password, 'consumer');
+    
 });

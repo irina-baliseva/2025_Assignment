@@ -9,15 +9,10 @@ test('user can buy a product', async ({ page }) => {
     const store = new StorePage(page);
 
     //login
-    await login.goto();
-  
     if (process.env.STORE_PASSWORD !== undefined){
         password = process.env.STORE_PASSWORD;
     }
-    
-    await login.login('irina', password, 'consumer');
-
-    await expect(page).toHaveURL(/\/store/i);
+    await login.loginAsConsumer('irina', password, 'consumer');
 
     // Add product to cart
     await store.addProductToCart('2', '3', 'Banana');

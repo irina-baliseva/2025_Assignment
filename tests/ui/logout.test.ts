@@ -9,18 +9,13 @@ test('consumer can log out successfully', async ({ page }) => {
     const storePage = new StorePage(page);
 
     //login
-    await login.goto();
 
     if (process.env.STORE_PASSWORD !== undefined){
         password = process.env.STORE_PASSWORD;
     }
-
-    await login.login('irina', password, 'consumer');
-
-    await expect(page).toHaveURL(/\/store/i);
-
+    await login.loginAsConsumer('irina', password, 'consumer'); 
+    
     //logout
     await storePage.logout();
-
     await expect(page).toHaveURL('https://hoff.is/login/')
 });

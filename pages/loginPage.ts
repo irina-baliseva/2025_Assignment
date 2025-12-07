@@ -26,5 +26,12 @@ export class LoginPage {
     await this.roleSelect.selectOption(role);
     await this.loginButton.click();
   }
+
+  async loginAsConsumer(username: string, password: string, role: string) {
+    
+    await this.goto();
+    await this.login(username, password, role);
+    await expect(this.page).toHaveURL(/\/store/i);
+  }
 }
  
